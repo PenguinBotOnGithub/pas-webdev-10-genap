@@ -1,16 +1,16 @@
-import AiringCard from "./AiringCard.js";
+import PTWCard from "./PTWCard.js";
 
-function AiringContainer({ data, onSet, onDelete }) {
+function PTWContainer({ data, onDelete }) {
   // Used an if statement instead of a ternary operator for readability
+  console.log(data);
   if (data.length !== 0) {
     return (
-      <div className="airing-container">
+      <div className="ptw-container">
         {data.map((anime) => {
           return (
-            <AiringCard
+            <PTWCard
               {...anime}
               key={anime.title + "-key"}
-              onSet={onSet}
               onDelete={onDelete}
             />
           );
@@ -19,9 +19,10 @@ function AiringContainer({ data, onSet, onDelete }) {
     );
   } else {
     return (
+      // Placeholder for a placeholder lol
       <img src="/images/loading.png" alt="loading" className="loading-image" />
     );
   }
 }
 
-export default AiringContainer;
+export default PTWContainer;

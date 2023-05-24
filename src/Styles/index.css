@@ -2,7 +2,8 @@
 /* TAG: GLOBAL */
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 /* Loading image styles */
