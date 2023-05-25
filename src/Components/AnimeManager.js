@@ -2,7 +2,7 @@ import React from "react";
 import { getData, getStudios } from "../Utils/utils.js";
 import AiringContainer from "./AiringContainer.js";
 import PTWContainer from "./PTWContainer.js";
-import hash from "hash-it";
+import hash from "object-hash";
 
 class AnimeManager extends React.Component {
   constructor(props) {
@@ -19,21 +19,29 @@ class AnimeManager extends React.Component {
     this.onRemovePTW = this.onRemovePTW.bind(this);
   }
 
-  onSetPTW(hash) {
-    console.log("onSetPTW");
+  onSetPTW(id) {
     // This causes React to update the page (normal)
     // See AiringCard.js
-    //
-    // const newPtwAnime = this.state.animeData.find(
-    //   (anime) => anime.hash == hash
-    // );
-    // const ptwAnime = [...this.state.ptwData, newPtwAnime];
-    // this.setState({ ptwData: ptwAnime });
+
+    const newPtwAnime = this.state.animeData.find((anime) => {
+      if (anime.id === id) {
+        anime.onPTW = true;
+        console.log(anime);
+      }
+      console.log(anime.id === id);
+      return anime.id === id;
+    });
+    console.log(newPtwAnime);
+    const ptwAnime = [...this.state.ptwData, newPtwAnime];
+    this.setState({ ptwData: ptwAnime });
   }
 
-  onRemovePTW(hash) {
+  onRemovePTW(id) {
     this.setState({
-      ptwData: this.state.ptwData.filter((anime) => anime.hash !== hash),
+      ptwData: this.state.ptwData.filter((anime) => {
+        anime.onPTW = false;
+        return anime.id !== id;
+      }),
     });
   }
 
@@ -45,10 +53,12 @@ class AnimeManager extends React.Component {
         studio: getStudios(anime.studios),
         img: anime.images.jpg.image_url,
         onPTW: false,
-        hash: hash({
+        createdAt: +new Date(),
+        id: hash({
           title: anime.title,
           studio: getStudios(anime.studios),
           index: index,
+          onPTW: false,
         }),
       };
     });

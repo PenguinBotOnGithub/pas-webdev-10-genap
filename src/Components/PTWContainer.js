@@ -2,7 +2,6 @@ import PTWCard from "./PTWCard.js";
 
 function PTWContainer({ data, onDelete }) {
   // Used an if statement instead of a ternary operator for readability
-  console.log(data);
   if (data.length !== 0) {
     return (
       <div className="ptw-container">
