@@ -2,6 +2,7 @@ import React from "react";
 import { getData, getStudios } from "../Utils/utils.js";
 import AiringContainer from "./AiringContainer.js";
 import PTWContainer from "./PTWContainer.js";
+import AnimeInput from "./AnimeInput.js";
 import hash from "object-hash";
 
 class AnimeManager extends React.Component {
@@ -13,16 +14,14 @@ class AnimeManager extends React.Component {
     };
 
     // Goofy ahh pending promise workaround (mfw constructors won't allow async/await)
-    // A loading screen will pop up if the promise isn't fulfilled yet (see the ternary operator at render() method)
+    // A loading screen will pop up if the promise isn't fulfilled yet
     this.getAnimeData();
     this.onSetPTW = this.onSetPTW.bind(this);
     this.onRemovePTW = this.onRemovePTW.bind(this);
+    this.onAddAnimePTW = this.onAddAnimePTW.bind(this);
   }
 
   onSetPTW(id) {
-    // This causes React to update the page (normal)
-    // See AiringCard.js
-
     const newPtwAnime = this.state.animeData.find((anime) => {
       if (anime.id === id) {
         anime.onPTW = true;
@@ -44,6 +43,12 @@ class AnimeManager extends React.Component {
         }
         return anime.id !== id;
       }),
+    });
+  }
+
+  onAddAnimePTW(anime) {
+    this.setState((prevState) => {
+      return { ptwData: [...prevState.ptwData, anime] };
     });
   }
 
@@ -76,8 +81,8 @@ class AnimeManager extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Current anime airing</h1>
+      <div className="anime-manager">
+        <h1>Current Anime Airing</h1>
 
         <AiringContainer
           data={this.state.animeData}
@@ -87,6 +92,9 @@ class AnimeManager extends React.Component {
 
         <h1>Plan to Watch</h1>
         <PTWContainer data={this.state.ptwData} onDelete={this.onRemovePTW} />
+
+        <h1>Enter Your Anime Manually Here</h1>
+        <AnimeInput onAddAnimePTW={this.onAddAnimePTW} />
       </div>
     );
   }

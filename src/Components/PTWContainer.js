@@ -18,8 +18,11 @@ function PTWContainer({ data, onDelete }) {
     );
   } else {
     return (
-      // Placeholder for a placeholder lol
-      <img src="/images/loading.png" alt="loading" className="loading-image" />
+      <div className="no-anime-container">
+        <h2>NO ANIME?</h2>
+        <img src="/images/no-anime-og.jpg" alt="NO ANIME?" />
+        <h3>Keep track of your watchlist easily here!</h3>
+      </div>
     );
   }
 }
