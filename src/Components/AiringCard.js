@@ -1,10 +1,10 @@
 function AiringCard({ title, studio, img, onSet, onDelete, id, onPTW }) {
   const button = !onPTW ? (
-    <button onClick={() => onSet(id)} className="add-ptw airing-button">
+    <button onClick={() => onSet(id)} className="add-ptw ptw-button">
       Add to Plan To Watch
     </button>
   ) : (
-    <button onClick={() => onDelete(id)} className="remove-ptw airing-button">
+    <button onClick={() => onDelete(id)} className="remove-ptw ptw-button">
       Remove from Plan To Watch
     </button>
   );

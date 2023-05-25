@@ -39,7 +39,9 @@ class AnimeManager extends React.Component {
   onRemovePTW(id) {
     this.setState({
       ptwData: this.state.ptwData.filter((anime) => {
-        anime.onPTW = false;
+        if (anime.id === id) {
+          anime.onPTW = false;
+        }
         return anime.id !== id;
       }),
     });
