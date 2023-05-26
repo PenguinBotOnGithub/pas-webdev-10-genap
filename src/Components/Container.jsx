@@ -1,5 +1,5 @@
-import Home from "./Home.js";
-import AnimeManager from "./AnimeManager.js";
+import Home from "./Home.jsx";
+import AnimeManager from "./AnimeManager.jsx";
 
 function Container() {
   return (

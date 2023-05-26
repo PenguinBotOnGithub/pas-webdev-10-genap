@@ -1,8 +1,8 @@
 import React from "react";
 import { getData, getStudios } from "../Utils/utils.js";
-import AiringContainer from "./AiringContainer.js";
-import PTWContainer from "./PTWContainer.js";
-import AnimeInput from "./AnimeInput.js";
+import AiringContainer from "./AiringContainer.jsx";
+import PTWContainer from "./PTWContainer.jsx";
+import AnimeInput from "./AnimeInput.jsx";
 import hash from "object-hash";
 
 class AnimeManager extends React.Component {

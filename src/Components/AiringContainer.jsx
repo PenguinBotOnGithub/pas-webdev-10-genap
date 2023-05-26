@@ -1,4 +1,4 @@
-import AiringCard from "./AiringCard.js";
+import AiringCard from "./AiringCard.jsx";
 
 function AiringContainer({ data, onSet, onDelete }) {
   // Used an if statement instead of a ternary operator for readability

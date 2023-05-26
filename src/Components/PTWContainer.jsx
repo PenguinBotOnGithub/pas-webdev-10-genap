@@ -1,4 +1,4 @@
-import PTWCard from "./PTWCard.js";
+import PTWCard from "./PTWCard.jsx";
 
 function PTWContainer({ data, onDelete }) {
   // Used an if statement instead of a ternary operator for readability
