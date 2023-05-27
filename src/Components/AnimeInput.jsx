@@ -49,8 +49,12 @@ class AnimeInput extends React.Component {
 
   onSubmit(event) {
     event.preventDefault();
-    console.log(this.props);
-    console.log(this.props.onAddAnimeToPTW);
+    if (this.state.name === "" || this.state.studios === "") {
+      return;
+    }
+    if (this.state.imageType === "Link" && this.state.image === "") {
+      return;
+    }
 
     // Code full of bs but eh
     const newAnime = {
