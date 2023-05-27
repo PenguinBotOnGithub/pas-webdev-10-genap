@@ -76,7 +76,7 @@ class AnimeInput extends React.Component {
     this.setState({
       name: "",
       studios: "",
-      image: "",
+      image: "/images/blehh_anime.jpg",
       imageType: "Default",
     });
   }

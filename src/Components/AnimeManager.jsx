@@ -25,12 +25,9 @@ class AnimeManager extends React.Component {
     const newPtwAnime = this.state.animeData.find((anime) => {
       if (anime.id === id) {
         anime.onPTW = true;
-        console.log(anime);
       }
-      console.log(anime.id === id);
       return anime.id === id;
     });
-    console.log(newPtwAnime);
     const ptwAnime = [...this.state.ptwData, newPtwAnime];
     this.setState({ ptwData: ptwAnime });
   }

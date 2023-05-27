@@ -1,7 +1,12 @@
 async function getData() {
-  const rawJson = await fetch("https://api.jikan.moe/v4/seasons/now");
-  const objectJson = await rawJson.json();
-  return objectJson["data"];
+  try {
+    const rawJson = await fetch("https://api.jikan.moe/v4/seasons/now");
+    const objectJson = await rawJson.json();
+    return objectJson["data"];
+  } catch (error) {
+    alert(`${error.name}\n${error.message}`);
+    console.log(error.stack);
+  }
 }
 
 function getStudios(studios) {
