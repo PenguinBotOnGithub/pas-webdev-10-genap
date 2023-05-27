@@ -10,6 +10,7 @@ body {
   --main-text-color: #dcedff;
   margin: 0;
   padding: 0;
+  padding-bottom: 20px;
 }
 
 /* Loading image styles */
